@@ -1,21 +1,27 @@
 #include <iostream>
 #include <fstream>
+#include <vector>
+#include <sstream>
 using namespace std;
 
 struct Student{
     int id;
-    char name;
+    char name[20];
     double score[2];
     double sum;
     double avg;
 };
 
+// void printrecord(){}
+
 int main(){
     ifstream ifs;
     Student s;
-    ifs.open("students.bin");
-    ifs.read((char*)&s,sizeof(s));
-   
+    ifs.open("students.bin",ios::binary);
+    if(!ifs){
+        cout << "Failed to open. students.bin not found";
+    }
+
 
     cout << "Id " << s.id << "\t";
     cout << "Name " << s.name << "\t";
