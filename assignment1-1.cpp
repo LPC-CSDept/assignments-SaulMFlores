@@ -42,3 +42,4 @@ int main()
 
         ofs.write((char*) &s, sizeof(s));
 }
+//new lines
