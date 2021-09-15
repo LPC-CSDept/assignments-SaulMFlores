@@ -34,7 +34,7 @@ int findMin(int numbers[], int N, int ith)
 			minidx = i;
 		}
 	}
-	return i; // 1
+	return minidx; // 1
 }
 
 void printArray(int a[], int x)
