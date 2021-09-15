@@ -6,13 +6,13 @@ using namespace std;
 
 struct Student{
     int id;
-    string name;
+    char name[20];
     double score[2];
     double sum;
     double avg;
 };
         //something like
-/* void printrecord(int id_num){
+/* void findstudent(int id_num){
      int N = s.id.size()
      for (int i; i<N; i++){
          if (id_num == s.id[i]){
@@ -25,11 +25,11 @@ struct Student{
 int main(){
     ifstream ifs;
     Student s;
-    ifs.open("students.bin", ios::out|ios::binary);
+    ifs.open("students.bin", ios::in|ios::binary);
     if(!ifs){
         cout << "Failed to open. students.bin not found";
     }
-    ifs.read((char*) &s.name, sizeof(s.name));
+    ifs.read((char*) &s, sizeof(s));
     cout << "Id " << s.id << "\t";
     cout << "Name " << s.name << "\t";
     cout << "Score1 " << s.score[0] << "\t";
