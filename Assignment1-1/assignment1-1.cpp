@@ -6,7 +6,7 @@ using namespace std;
 
 struct student {
     int id;
-    string name;
+    char name[20];
     double score[2];
     double sum;
     double avg;
