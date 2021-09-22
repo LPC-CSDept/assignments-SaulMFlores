@@ -15,6 +15,7 @@ void printStudents(Students [], int);
 void makeStudents(Students [], int);
 void sortStudents(Students [], int);
 int binarysearch(Students [], int, int);
+void printtarget(Students [], int);
 
 int main()
 {
@@ -33,10 +34,8 @@ int main()
     int target = 10006677;
     int result = binarysearch(s, N, target);
     if (result){
-        cout << "student information\n";
-        cout << s[result].sid << endl;
-        cout << s[result].sname << endl;
-        cout << s[result].scores << endl;
+        cout << "Student Information: \n";
+       printtarget(s, result);
     }
 
 }
@@ -100,4 +99,10 @@ int binarysearch(Students array[], int N, int target){
         else first = mid + 1;
     }
     return -1;
+}
+
+void printtarget(Students s[], int result){
+    cout << s[result].sid << "\t" << s[result].sname << "\t";
+		for(int j=0; j<NUM_SCORES; j++)
+			cout <<  s[result].scores[j] << "\t";
 }
