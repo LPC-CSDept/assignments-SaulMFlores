@@ -66,9 +66,9 @@ void sortStudents(Students * const ptr, int N){
         cout << "sum info: " << sum[i] << endl;
     }
 
-    for(int i=0; i<N-1; i++){
-        for (int j=0; j<N-i; j++){
-            if (sum[i] > sum[i+1]){
+    for(int i=0; i<N; i++){
+        for (int j=0; j<N-1; j++){
+            if (ptr[j].sid > ptr[j+1].sid){
                 swap (ptr[j], ptr[j+1]);
             }
         }
