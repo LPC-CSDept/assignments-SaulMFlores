@@ -61,15 +61,12 @@ void sortStudents(Students * const ptr, int N){
             sum[i] += ptr[i].scores[j];
         }
     }
-
-    for (int i=0; i<N; i++){
-        cout << "sum info: " << sum[i] << endl;
-    }
-
+    
     for(int i=0; i<N; i++){
         for (int j=0; j<N-1; j++){
-            if (ptr[j].sid > ptr[j+1].sid){
+            if (sum[j] < sum[j+1]){
                 swap (ptr[j], ptr[j+1]);
+                swap (sum[j], sum[j+1]);
             }
         }
     }
