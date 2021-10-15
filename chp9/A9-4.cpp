@@ -55,10 +55,21 @@ void printStudents(Students * const ptr, int N)
 }
 
 void sortStudents(Students * const ptr, int N){
+    int sum[N];
+    for (int i=0; i<N; i++){
+        for (int j=0; j<NUM_SCORES; j++){
+            sum[i] = *ptr[j].scores;
+        }
+    }
+
+    for (int i=0; i<N; i++){
+        cout << "sum info: " << sum[i] << endl;
+    }
+
     for(int i=0; i<N-1; i++){
         for (int j=0; j<N-i; j++){
-            if ((ptr+j)->sid > (ptr+j+1)->sid){
-                swap ((ptr+j)->sid, (ptr+j+1)->sid);
+            if (sum[i] > sum[i+1]){
+                swap (ptr[j], ptr[j+1]);
             }
         }
     }
