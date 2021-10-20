@@ -10,18 +10,17 @@ struct Student{
 };
 
 
-Student makeStudents(int n);
+void makeStudents(int n);
 
 main(){
 
-     const int N = 10;
-     makeStudents(N);
-    //  for (int i = 0; i<N; i++){
-      //  ofs.write((char*) &ptr, sizeof(ptr));
-    }
+	const int N = 10;
+	makeStudents(N);
+    //  for (int i = 0; i<N; i++){                 Don't think I need this If I'm doing
+      //  ofs.write((char*) &ptr, sizeof(ptr));   everything in the function makeStudents
 }
 
-Student makeStudents(int N){
+void makeStudents(int N){
     
     ifstream ifs;
     ofstream ofs;
@@ -33,55 +32,38 @@ Student makeStudents(int N){
     }
     ofs.open("students.bin");
   
-    Student *new_student, *head, *ptr, *prev;
+    Student *new_student, *head, *sptr;
 
 	head = nullptr;
 
 	for(int i=0; i<N; i++)
 	{
 		new_student = new Student;
-
-        ofs.write((int*) &id, sizeof(ptr));
-		cin >> new_student->id;
+		ifs >> new_student->id >> new_student->name;
+		for(int j = 0; j<3; j++)
+			ifs >> (new_student+i)->scores[j];
+	
 		new_student->next = nullptr;
-
 		if ( head == nullptr)
 		{
 			head = new_student;
 		}
 		else
 		{
-			prev = nullptr;
-			ptr = head ;
-			while( ptr != nullptr)
+			sptr = head ;
+			while( sptr != nullptr)
 			{
-				if( new_student->id < ptr->id)
-					 break;
-				else
-				{
-					prev = ptr;
-					ptr = ptr->next;
-				}
-			}
-			if ( prev == nullptr)
-			{
-				head = new_student;
-				new_student->next = ptr;
-			}
-			else
-			{
-				new_student->next = prev->next;
-				prev->next = new_student;
+				sptr = sptr->next;
 			}
 		}
+		ofs.write((char *) &head, sizeof(head));
 	}
     
-    ptr = head;
+    sptr = head;
     int i = 1;
-	while(ptr != nullptr)
+	while(sptr != nullptr)
     {
-		cout << i++ << " node's value " << ptr->id << endl;
-		ptr = ptr->next;
+		cout << i++ << " node's value " << sptr->id << endl;
+		sptr = sptr->next;
     }
-    return ptr;
 }
