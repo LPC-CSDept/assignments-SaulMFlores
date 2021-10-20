@@ -12,26 +12,37 @@ struct Student{
 int main()
 {
     ifstream ifs;
-cout << "does this work?";
-    Student *sptr;
-    sptr = new Student;
-    Student s = *sptr;
-      ifs.open("students.bin", ios::in|ios::binary);
-    if(!ifs)
-    {
-      cout << "Failed to open. students.bin not found";
-    }
+       Student *new_student, *head, *sptr;
+
+	head = nullptr;
+
+	for(int i=0; i<10; i++)
+	{
+		new_student = new Student;
+	
+		new_student->next = nullptr;
+		if ( head == nullptr)
+		{
+			head = new_student;
+		}
+		else
+		{
+			sptr = head ;
+		ifs >> sptr->id >> sptr->name;
+		for(int j = 0; j<3; j++)
+			ifs >> (sptr+i)->scores[j];
+			while( sptr != nullptr)
+			{
+				sptr = sptr->next;
+			}
+		}
+	}
     
-    ifs.read((char*)&sptr, sizeof(sptr));
+    sptr = head;
+    int i = 0;
+	while(sptr != nullptr)
     {
-   for ( int i = 0; i<sizeof(sptr); i++)
-   {    
-        ifs >> (sptr+i)->id >> (sptr+i)->name;
-        for(int j = 0; j<3; j++)
-        {
-            ifs >> (sptr+i)->scores[j];
-        }
+		cout << i++ << " node's value " << (sptr+i)->id << endl;
+		sptr = sptr->next;
     }
-    }
-    cout << "thers supposed to be something posted here -> " << s.id << endl;
 }
