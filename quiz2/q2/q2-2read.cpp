@@ -22,13 +22,13 @@ int main()
     }
     
     ifs.read((char*)&sptr, sizeof(sptr));
-   for ( int i = 0; i<10; i++)
+   for ( int i = 0; i<sizeof(sptr); i++)
    {
         ifs >> (sptr+i)->id >> (sptr+i)->name;
         for(int j = 0; j<3; j++)
         {
             ifs >> (sptr+i)->scores[j];
         }
+        cout <<s.id[i];
     }
-    cout << s.id;
 }
