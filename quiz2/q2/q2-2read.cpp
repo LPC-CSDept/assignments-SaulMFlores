@@ -11,7 +11,7 @@ struct Student{
 int main()
 {
     ifstream ifs;
-
+cout << "does this work?";
     Student *sptr;
     sptr = new Student;
     Student s = *sptr;
@@ -29,6 +29,6 @@ int main()
         {
             ifs >> (sptr+i)->scores[j];
         }
-        cout <<s.id[i];
     }
+    cout << "thers supposed to be something posted here -> " << s.id << endl;
 }
