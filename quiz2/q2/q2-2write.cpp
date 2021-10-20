@@ -39,9 +39,6 @@ void makeStudents(int N){
 	for(int i=0; i<N; i++)
 	{
 		new_student = new Student;
-		ifs >> new_student->id >> new_student->name;
-		for(int j = 0; j<3; j++)
-			ifs >> (new_student+i)->scores[j];
 	
 		new_student->next = nullptr;
 		if ( head == nullptr)
@@ -51,12 +48,15 @@ void makeStudents(int N){
 		else
 		{
 			sptr = head ;
+		ifs >> sptr->id >> sptr->name;
+		for(int j = 0; j<3; j++)
+			ifs >> (sptr+i)->scores[j];
 			while( sptr != nullptr)
 			{
 				sptr = sptr->next;
 			}
 		}
-		ofs.write((char *) &head, sizeof(head));
+		ofs.write((char *) &sptr, sizeof(head));
 	}
     
     sptr = head;
