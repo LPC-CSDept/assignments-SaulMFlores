@@ -58,12 +58,4 @@ void makeStudents(int N){
 		}
 		ofs.write((char *) &sptr, sizeof(head));
 	}
-    
-    sptr = head;
-    int i = 1;
-	while(sptr != nullptr)
-    {
-		cout << i++ << " node's value " << sptr->id << endl;
-		sptr = sptr->next;
-    }
 }
