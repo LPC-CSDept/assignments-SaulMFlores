@@ -4,24 +4,26 @@ class DOB{
     private:
     int month;
     int day;
+    DOB dob;
     public:
     DOB();
     DOB(int month,int day);
-    int getMonth() const{ return month; }
-    int getDay() const { return day; }
-    void printDate() const { cout << month << "\t" << day;}
-    void setMonth (int month){ month = month; };
+    int getMonth() const;
+    int getDay() const;
+    void printDate() const;
+    void setDOB(DOB dob);
+    void setMonth (int month);
     void setDay(int day);
 };
 
-class Student{
+class student{
     private:
     int sid;
     string sname;
     DOB dob;
     public:
-    Student();
-    Student(string name, int sid, DOB dob);
+    student();
+    student(string name, int sid, DOB dob)
     int getSID() const;
     string getSname() const;
     DOB getDOB() const;
