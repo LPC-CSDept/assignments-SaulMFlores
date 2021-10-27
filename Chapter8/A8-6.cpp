@@ -13,9 +13,8 @@ struct Students {
 
 void printStudents(Students [], int);
 void makeStudents(Students [], int);
-void sortStudents(Students [], int);
-int binarysearch(Students [], int, int);
-void printtarget(Students [], int);
+void sortStudetns(Students [], int );
+int binarySearch(Students [], int , int );
 
 int main()
 {
@@ -27,30 +26,35 @@ int main()
 
 
 	// 1) Sort by ID
-	sortStudents(s, N);
-    printStudents(s,N);
+	sortStudetns(s, N);
+	printStudents(s, N); 
 	// 2) Search the certain student information by the ID (or any other fields)
 	// binary search
-    int target = 10006677;
-    int result = binarysearch(s, N, target);
-    if (result){
-        cout << "Student Information: \n";
-       printtarget(s, result);
-    }
+
+	int target = 10006677;
+
+	int result = binarySearch(s, N, target);
+	if ( result)
+	{
+		cout << "The student information \n";
+		cout << result << endl;
+	}
+
 
 }
 
-void sortStudents(Students s[], int N)
-{  
-    for (int i=0; i<N; i++){
+void sortStudetns(Students s[], int N)
+{
+	for(int i=0; i<N; i++)
+	{
+		for(int j=0; j<N-1; j++)
+		{
+			if (s[j].sid > s[j+1].sid)	
+			// if ( strcmp(s[j].sname, s[j+1].sname) > 0 )	
+				swap(s[j], s[j+1]);
+		}
+	}
 
-        for (int J=0; J<N-1; J++){
-
-            if (s[J].sid > s[J+1].sid)
-                swap(s[J], s[J+1]);
-        }
-
-    }
 }
 
 void makeStudents(Students s[], int N)
@@ -83,26 +87,24 @@ void printStudents(Students s[], int N)
 	cout << "==== End of Record === \n";
 }
 
-int binarysearch(Students array[], int N, int target){
+
+
+int binarySearch(Students array[], int N, int target)
+{
     int first, last, mid;
     int cmp = 0;
 
     first = 0;
     last = N-1;
-    while ( first <= last){
-        cmp += 1;
-        mid = (first + last)/2;
-        if (array[mid].sid == target)
+    while ( first <= last) 
+    {
+        mid = (first + last) / 2;
+        if ( array[mid].sid == target)
             return mid;
-        if (array [mid].sid > target)
+        if ( array[mid].sid > target)
             last = mid - 1;
-        else first = mid + 1;
+        else 
+            first = mid + 1;
     }
     return -1;
-}
-
-void printtarget(Students s[], int result){
-    cout << s[result].sid << "\t" << s[result].sname << "\t";
-		for(int j=0; j<NUM_SCORES; j++)
-			cout <<  s[result].scores[j] << "\t";
 }

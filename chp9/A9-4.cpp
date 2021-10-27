@@ -55,13 +55,13 @@ void printStudents(Students * const ptr, int N)
 }
 
 void sortStudents(Students * const ptr, int N){
-    double sum[N];
+    int sum[N];
     for (int i=0; i<N; i++){
         for (int j=0; j<NUM_SCORES; j++){
             sum[i] += ptr[i].scores[j];
         }
     }
-    
+
     for(int i=0; i<N; i++){
         for (int j=0; j<N-1; j++){
             if (sum[j] < sum[j+1]){

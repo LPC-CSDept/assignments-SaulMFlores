@@ -11,8 +11,8 @@ int main()
 	
 	printArray(numbers, N);
 
-	for (int i=0; i<N-1; i++)
-		for(int j=0; j<N-1; j++)
+	for (int i=0; i<N-1; i++)    //bubble select
+		for (int j=0; j<N-i; j++)
 			if ( numbers[j] > numbers[j+1])
 				swap (numbers[j], numbers[j+1] );
 
