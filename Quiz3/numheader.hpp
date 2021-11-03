@@ -6,8 +6,7 @@
 #include <algorithm>
 using namespace std;
 
-template<class T>
-class Numbers
+template<class T> class Numbers
 {
 private:
 	int ID;
@@ -18,7 +17,7 @@ public:
 	{
 		ID = -1;
 	}
-	Numbers(T idnum, int n) 
+	Numbers(T idnum, T n) 
 	{ 
 		num.reserve(idnum);
 		for(int i=0;i<n; i++)
@@ -64,8 +63,12 @@ public:
 	}
 	void deleteElm(T d)
 	{
+
 		auto i = std::find(begin(num), end(num), d);
+		while(i >= 0){
 		num.erase(i);
+		auto i = std::find(begin(num), end(num), d);
+		}
 	}
 	void addElm(T a)
 	{
