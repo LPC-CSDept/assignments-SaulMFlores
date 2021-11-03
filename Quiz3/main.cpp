@@ -3,14 +3,28 @@
 #include <ctime>
 using namespace std;
 
-int findMax(Numbers[], int);
-void deDup(Numbers &, Numbers<int> &);
+int findMax(Numbers<int>[], int);
+void deDup(Numbers<int>&, Numbers<int> &);
 
 int main()
 {
-    const int N = 5;
+    //testing code here
+    Numbers<int> num(1,10);
+    num.printAll();
+    cout << num.getSum() << endl;
+    cout << num.getMin() << endl;
+    cout << num.getMax() << endl;
+    cout << num.getElm(0) << endl;
+    cout << num.getSize() << endl;
+    cout << num.getID() << endl;
+    num.deleteElm(2);
+    num.printAll();
+    num.addElm(21);
+    num.printAll();
+
+    /*const int N = 5;
     srand(time(0));
-    Numbers numberset[] = {Numbers(1, 5), Numbers(2, 5), Numbers(3, 10), Numbers(4, 5), Numbers(5, 7)};
+    Numbers<int> numberset[] = {Numbers(1, 5), Numbers(2, 5), Numbers(3, 10), Numbers(4, 5), Numbers(5, 7)};
     for (int i = 0; i < N; i++)
     {
         cout << "Number Set ID " << numberset[i].getID() << "\t";
@@ -24,5 +38,5 @@ int main()
     numberset[2].printAll();
     deDup(numberset[0], numberset[1]);
     cout << "ID 1 - ID 2\n";
-    numberset[0].printAll();
+    numberset[0].printAll();*/
 }

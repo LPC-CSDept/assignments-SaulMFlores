@@ -9,7 +9,7 @@ using namespace std;
 template<class T> class Numbers
 {
 private:
-	int ID;
+	T ID;
 	vector<T> num;
 
 public:
@@ -31,13 +31,13 @@ public:
 	{
 		return num.size();
 	}
-	T getElm(int i) const
+	T getElm(T i) const
 	{
 		return num.at(i);
 	}
 	T getMax() const
 	{
-		int max = 0;
+		T max = 0;
 		for (int i = 0; i < num.size(); i++){
 			if (max < num.at(i))
 				max = num.at(i);
@@ -46,7 +46,7 @@ public:
 	};
 	T getMin() const
 	{
-		int min;
+		T min;
 		for (int i = 0; i < num.size(); i++){
 			if (min > num.at(i))
 				min = num.at(i);
@@ -55,7 +55,7 @@ public:
 	}
 	T getSum() const
 	{
-		int sum;
+		T sum;
 		for (int i = 0; i<num.size(); i++){
 			sum += num.at(i);
 		}
@@ -63,11 +63,18 @@ public:
 	}
 	void deleteElm(T d)
 	{
-
-		auto i = std::find(begin(num), end(num), d);
-		while(i >= 0){
-		num.erase(i);
-		auto i = std::find(begin(num), end(num), d);
+		if(d == num.front())
+		{
+			num.erase(num.begin());
+		}
+		{
+			for (int i = 0; i < num.size();i++)
+			{
+				if(d == num.at(i))
+				{
+					num.erase(num.begin()+i);
+				}
+			}
 		}
 	}
 	void addElm(T a)
