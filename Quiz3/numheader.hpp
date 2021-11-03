@@ -3,13 +3,13 @@
 #include <cstdlib>
 #include <vector>
 #include <iostream>
-
+using namespace std;
 template<class T>
 class Numbers
 {
 private:
 	int ID;
-	vector<int> numbers;
+	vector<int> num;
 
 public:
 	Numbers() 
@@ -18,9 +18,9 @@ public:
 	}
 	Numbers(int id, int num) 
 	{ 
-		numbers.reserve(id);
+		num.reserve(id);
 		for(int i=0;i<num; i++)
-			numbers.push_back(rand() % 100); 
+			num.push_back(rand() % 100); 
 	}
 	int getID() const 
 	{
@@ -28,56 +28,56 @@ public:
 	}
 	int getSize() const
 	{
-		return numbers.size();
+		return num.size();
 	}
 	int getElm(int i) const
 	{
-		return numbers.at(i);
+		return num.at(i);
 	}
 	int getMax() const
 	{
 		int max = 0;
-		for (int i = 0; i < numbers.size(); i++){
-			if (max < numbers.at(i))
-				max = numbers.at(i);
+		for (int i = 0; i < num.size(); i++){
+			if (max < num.at(i))
+				max = num.at(i);
 		}
-		return max 
+		return max;
 	};
 	int getMin() const
 	{
 		int min;
-		for (int i = 0; i < numbers.size(); i++){
-			if (min > numbers.at(i))
-				min = numbers.at(i);
+		for (int i = 0; i < num.size(); i++){
+			if (min > num.at(i))
+				min = num.at(i);
 		}
 		return min;
 	}
 	int getSum() const
 	{
 		int sum;
-		for (int i = 0; i<numbers.size(); i++){
-			sum += numbers.at(i);
+		for (int i = 0; i<num.size(); i++){
+			sum += num.at(i);
 		}
 		return sum;
 	}
 	void deleteElm(int d)
 	{
 		int elm = d;
-		for (int i = 0; i<numbes.size();i++)
+		for (int i = 0; i<num.size();i++)
 		{
-			if (elm == numbers.at(i))
-				numbers.erase(i);
+			if (elm == num.at(i))
+				num.erase(i);
 		}
 	}
 	void addElm(int a)
 	{
-		numbers.pop_back(a);
+		num.pop_back(a);
 	}
 	void printAll() const
 	{
-		for (int i = 0; i<numbers.size();i++)
+		for (int i = 0; i<num.size();i++)
 		{
-			cout << numbers.at(i) << "\t"; 
+			cout << num.at(i) << "\t"; 
 		}
 	}
 };
