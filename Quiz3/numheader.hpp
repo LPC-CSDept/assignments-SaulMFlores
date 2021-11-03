@@ -3,38 +3,40 @@
 #include <cstdlib>
 #include <vector>
 #include <iostream>
+#include <algorithm>
 using namespace std;
+
 template<class T>
 class Numbers
 {
 private:
 	int ID;
-	vector<int> num;
+	vector<T> num;
 
 public:
 	Numbers() 
 	{
 		ID = -1;
 	}
-	Numbers(int id, int num) 
+	Numbers(T idnum, int n) 
 	{ 
-		num.reserve(id);
-		for(int i=0;i<num; i++)
-			num.push_back(rand() % 100); 
+		num.reserve(idnum);
+		for(int i=0;i<n; i++)
+			num.push_back(rand() % 3); 
 	}
-	int getID() const 
+	T getID() const 
 	{
 		return ID;
 	}
-	int getSize() const
+	T getSize() const
 	{
 		return num.size();
 	}
-	int getElm(int i) const
+	T getElm(int i) const
 	{
 		return num.at(i);
 	}
-	int getMax() const
+	T getMax() const
 	{
 		int max = 0;
 		for (int i = 0; i < num.size(); i++){
@@ -43,7 +45,7 @@ public:
 		}
 		return max;
 	};
-	int getMin() const
+	T getMin() const
 	{
 		int min;
 		for (int i = 0; i < num.size(); i++){
@@ -52,7 +54,7 @@ public:
 		}
 		return min;
 	}
-	int getSum() const
+	T getSum() const
 	{
 		int sum;
 		for (int i = 0; i<num.size(); i++){
@@ -60,25 +62,22 @@ public:
 		}
 		return sum;
 	}
-	void deleteElm(int d)
+	void deleteElm(T d)
 	{
-		int elm = d;
-		for (int i = 0; i<num.size();i++)
-		{
-			if (elm == num.at(i))
-				num.erase(i);
-		}
+		auto i = std::find(begin(num), end(num), d);
+		num.erase(i);
 	}
-	void addElm(int a)
+	void addElm(T a)
 	{
-		num.pop_back(a);
+		num.push_back(a);
 	}
 	void printAll() const
 	{
 		for (int i = 0; i<num.size();i++)
 		{
-			cout << num.at(i) << "\t"; 
+			cout << num[i] << "\t"; 
 		}
+		cout << endl;
 	}
 };
 
