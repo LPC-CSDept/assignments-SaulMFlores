@@ -12,7 +12,10 @@ private:
 	vector<int> numbers;
 
 public:
-	Numbers() {ID = -1;}
+	Numbers() 
+	{
+		ID = -1;
+	}
 	Numbers(T id, int num) 
 	{ 
 		numbers.reserve(id);
@@ -33,14 +36,20 @@ public:
 	}
 	int getMax() const
 	{
-		int max;
-		//maybe implement binary search to find max here
+		int max = 0;
+		for (int i = 0; i < numbers.size(); i++){
+			if (max < numbers.at(i))
+				max = numbers.at(i);
+		}
 		return max 
 	};
 	int getMin() const
 	{
 		int min;
-		//maybe implement binary search to find min here
+		for (int i = 0; i < numbers.size(); i++){
+			if (min > numbers.at(i))
+				min = numbers.at(i);
+		}
 		return min;
 	}
 	int getSum() const
@@ -53,13 +62,19 @@ public:
 	}
 	void deleteElm(int d)
 	{
-
+		//delete all the elements that is the 
+		//same as the value d from the vector. 
 	}
 	void addElm(int a)
 	{
+		// Add the value as a last element to the vector. This value could 
+		//be duplicated to others.
 		numbers.pop_back(a);
 	}
-	void printAll() const;
+	void printAll() const
+	{
+		//print all elements in a vector
+	}
 
 };
 
