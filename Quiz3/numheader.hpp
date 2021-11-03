@@ -16,7 +16,7 @@ public:
 	{
 		ID = -1;
 	}
-	Numbers(T id, int num) 
+	Numbers(int id, int num) 
 	{ 
 		numbers.reserve(id);
 		for(int i=0;i<num; i++)
@@ -62,20 +62,24 @@ public:
 	}
 	void deleteElm(int d)
 	{
-		//delete all the elements that is the 
-		//same as the value d from the vector. 
+		int elm = d;
+		for (int i = 0; i<numbes.size();i++)
+		{
+			if (elm == numbers.at(i))
+				numbers.erase(i);
+		}
 	}
 	void addElm(int a)
 	{
-		// Add the value as a last element to the vector. This value could 
-		//be duplicated to others.
 		numbers.pop_back(a);
 	}
 	void printAll() const
 	{
-		//print all elements in a vector
+		for (int i = 0; i<numbers.size();i++)
+		{
+			cout << numbers.at(i) << "\t"; 
+		}
 	}
-
 };
 
 #endif
