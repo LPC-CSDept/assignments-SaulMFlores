@@ -9,23 +9,24 @@ using namespace std;
 template<class T> class Numbers
 {
 private:
-	T ID;
+	int id;
 	vector<T> num;
 
 public:
 	Numbers() 
 	{
-		ID = -1;
+		id = -1;
 	}
-	Numbers(T idnum, T n) 
+	Numbers(int idnum, T n) 
 	{ 
-		num.reserve(idnum);
+		id = idnum;
+		num.reserve(n);
 		for(int i=0;i<n; i++)
-			num.push_back(rand() % 3); 
+			num.push_back(rand() % 100); 
 	}
 	T getID() const 
 	{
-		return ID;
+		return id;
 	}
 	T getSize() const
 	{
@@ -55,9 +56,9 @@ public:
 	}
 	T getSum() const
 	{
-		T sum;
+		int sum = 0;
 		for (int i = 0; i<num.size(); i++){
-			sum += num.at(i);
+			sum = sum + num[i];
 		}
 		return sum;
 	}
@@ -67,13 +68,11 @@ public:
 		{
 			num.erase(num.begin());
 		}
+		for (int i = 0; i < num.size();i++)
 		{
-			for (int i = 0; i < num.size();i++)
+			if(d == num.at(i))
 			{
-				if(d == num.at(i))
-				{
-					num.erase(num.begin()+i);
-				}
+				num.erase(num.begin()+i);
 			}
 		}
 	}
