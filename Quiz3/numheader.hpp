@@ -22,7 +22,7 @@ public:
 		id = idnum;
 		num.reserve(n);
 		for(int i=0;i<n; i++)
-			num.push_back(rand() % 100); 
+			num.push_back(rand() % 3); 
 	}
 	T getID() const 
 	{
@@ -64,6 +64,8 @@ public:
 	}
 	void deleteElm(T d)
 	{
+		//(iterato = num.begin(); iterator < num.end(); it++)
+			//if(*it == d)
 		if(d == num.front())
 		{
 			num.erase(num.begin());

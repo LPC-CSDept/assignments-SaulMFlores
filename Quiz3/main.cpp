@@ -10,7 +10,8 @@ int main()
 {
     const int N = 5;
     srand(time(0));
-    Numbers<int> numberset[] = {Numbers(1, 5), Numbers(2, 5), Numbers(3, 10), Numbers(4, 5), Numbers(5, 7)};
+    Numbers<int> numberset[] = 
+    Numbers<int> {Numbers<int>(1, 5), Numbers<int>(2, 5), Numbers<int>(3, 10), Numbers<int>(4, 5), Numbers<int>(5, 7)};
     for (int i = 0; i < N; i++)
     {
         cout << "Number Set ID " << numberset[i].getID() << "\t";

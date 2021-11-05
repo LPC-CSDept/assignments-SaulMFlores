@@ -5,7 +5,7 @@ using namespace std;
 int binarysearch(int [], int, int);
 
 int main() {
-
+   cout << binarysearch(int )
 }
 int binarySearch(int number[], int N, int target)
 {

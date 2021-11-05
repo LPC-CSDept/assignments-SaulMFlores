@@ -10,7 +10,8 @@
     "string_view": "cpp",
     "initializer_list": "cpp",
     "functional": "cpp",
-    "iosfwd": "cpp"
+    "iosfwd": "cpp",
+    "ostream": "cpp"
   },
   "C_Cpp_Runner.warnings": [
     "-Wall",
