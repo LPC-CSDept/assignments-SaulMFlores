@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <vector>
 #include <iostream>
-#include <algorithm>
+#include <iterator>
 using namespace std;
 
 template<class T> class Numbers
@@ -22,7 +22,7 @@ public:
 		id = idnum;
 		num.reserve(n);
 		for(int i=0;i<n; i++)
-			num.push_back(rand() % 3); 
+			num.push_back(rand() % 100); 
 	}
 	T getID() const 
 	{
@@ -64,17 +64,15 @@ public:
 	}
 	void deleteElm(T d)
 	{
-		//(iterato = num.begin(); iterator < num.end(); it++)
+		//(iterator = num.begin(); iterator < num.end(); it++)
 			//if(*it == d)
-		if(d == num.front())
+	
+		for ( int i = num.begin(); i < num.end(); i++)
 		{
-			num.erase(num.begin());
-		}
-		for (int i = 0; i < num.size();i++)
-		{
-			if(d == num.at(i))
+			if(i == d)
 			{
 				num.erase(num.begin()+i);
+				i--;
 			}
 		}
 	}
