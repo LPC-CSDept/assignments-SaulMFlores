@@ -66,14 +66,16 @@ public:
 	{
 		//(iterator = num.begin(); iterator < num.end(); it++)
 			//if(*it == d)
-	
-		for ( int i = num.begin(); i < num.end(); i++)
+		int i = 0;
+		for ( vector<int>::iterator it= num.begin(); it != num.end(); it++)
 		{
-			if(i == d)
+			if(num.at(i) == d)
 			{
 				num.erase(num.begin()+i);
+				it--;
 				i--;
 			}
+			i++;
 		}
 	}
 	void addElm(T a)
