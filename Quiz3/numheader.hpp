@@ -22,7 +22,7 @@ public:
 		id = idnum;
 		num.reserve(n);
 		for(int i=0;i<n; i++)
-			num.push_back(rand() % 100); 
+			num.push_back(rand() % 11); 
 	}
 	T getID() const 
 	{

@@ -1,6 +1,7 @@
 #include "numheader.hpp"
 #include <cstdlib>
 #include <ctime>
+#include <algorithm>
 using namespace std;
 
 int findMax(Numbers<int> x[], int y);
@@ -49,11 +50,58 @@ int findMax(Numbers<int> x[], int N)
 
 void deDup(Numbers<int>& a, Numbers<int>& b)
 {  
-    for(int i =0; i < a.getSize(); i++)
+  
+    vector<int> elmVal;
+    int smaller;
+    int diff;
+    int numAtEnd;
+    if(a.getSize() > b.getSize())
     {
-        if (a.getElm(i) == b.getElm(i))
+        smaller = b.getSize();
+        diff = a.getSize() - b.getSize();
+        numAtEnd = b.getElm(smaller - 1);
+        for (int i = 0; i < smaller; i++)
         {
-            a.deleteElm(i);
+            if (a.getElm(i) == b.getElm(i))
+            {
+                elmVal.push_back(b.getElm(i));
+            }
+        }
+        for (int i = smaller; i < smaller + diff; i++)
+        {
+            if(a.getElm(i) == numAtEnd)
+            {
+                elmVal.push_back(numAtEnd);
+            }
         }
     }
+
+    else if(a.getSize() < b.getSize())
+    {
+        smaller = a.getSize();
+        diff = b.getSize() - a.getSize();
+        numAtEnd = a.getElm(smaller - 1);
+          for (int i = 0; i < smaller; i++)
+        {
+            if (a.getElm(i) == b.getElm(i))
+            {
+                elmVal.push_back(b.getElm(i));
+            }
+        }
+    }
+    else{
+        for(int i = 0; i < a.getSize()+1; i++)
+        {
+            if (a.getElm(i) == b.getElm(i))
+            {
+                elmVal.push_back(b.getElm(i));
+            }
+        }
+    }
+    elmVal.erase(std::unique(elmVal.begin(), elmVal.end()), elmVal.end());
+  while(elmVal.size() != 0)
+  {
+      a.deleteElm(elmVal.back());
+      elmVal.pop_back();
+  }
 }
