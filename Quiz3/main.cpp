@@ -49,7 +49,7 @@ int findMax(Numbers<int> x[], int N)
 
 void deDup(Numbers<int>& a, Numbers<int>& b)
 {  
-    for(int i; i < a.getSize();i++)
+    for(int i =0; i < a.getSize(); i++)
     {
         if (a.getElm(i) == b.getElm(i))
         {

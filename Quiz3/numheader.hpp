@@ -67,7 +67,7 @@ public:
 		//(iterator = num.begin(); iterator < num.end(); it++)
 			//if(*it == d)
 		int i = 0;
-		for ( vector<int>::iterator it= num.begin(); it != num.end(); it++)
+		for ( vector<int>::iterator it = num.begin(); it != num.end(); it++)
 		{
 			if(num.at(i) == d)
 			{
