@@ -52,61 +52,17 @@ void deDup(Numbers<int>& a, Numbers<int>& b)
 {  
   
     vector<int> elmVal;
-    int smaller;
-    int diff;
-    int numAtEnd;
-    if(a.getSize() > b.getSize())
-    {
-        smaller = b.getSize();
-        diff = a.getSize() - b.getSize();
-        numAtEnd = b.getElm(smaller - 1);
-        for (int i = 0; i < smaller; i++)
-        {
-            if (a.getElm(i) == b.getElm(i))
+    int i;
+    int j;
+    for(i = 0; i < b.getSize(); i++){
+        for(j = 0; j < a.getSize(); j++){
+            if (a.getElm(j) == b.getElm(i))
             {
-                elmVal.push_back(b.getElm(i));
-            }
-        }
-        for (int i = smaller; i < smaller + diff; i++)
-        {
-            if(a.getElm(i) == numAtEnd)
-            {
-                elmVal.push_back(numAtEnd);
+                a.deleteElm(i);
             }
         }
     }
 
-    else if(a.getSize() < b.getSize())
-    {
-        smaller = a.getSize();
-        diff = b.getSize() - a.getSize();
-        numAtEnd = a.getElm(smaller - 1);
-          for (int i = 0; i < smaller; i++)
-        {
-            if (a.getElm(i) == b.getElm(i))
-            {
-                elmVal.push_back(b.getElm(i));
-            }
-        }
-         for (int i = smaller; i < smaller + diff; i++)
-        {
-            if(b.getElm(i) == numAtEnd)
-            {
-                elmVal.push_back(numAtEnd);
-            }
-        }
-    }
-
-    else
-    {
-        for(int i = 0; i < a.getSize(); i++)
-        {
-            if (a.getElm(i) == b.getElm(i))
-            {
-                elmVal.push_back(b.getElm(i));
-            }
-        }
-    }
     elmVal.erase(std::unique(elmVal.begin(), elmVal.end()), elmVal.end());
   while(elmVal.size() != 0)
   {
