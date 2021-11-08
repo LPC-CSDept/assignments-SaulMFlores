@@ -23,6 +23,8 @@ public:
 		num.reserve(n);
 		for(int i=0;i<n; i++)
 			num.push_back(rand() % 11); 
+		
+		sort(num.begin(), num.end());
 	}
 	T getID() const 
 	{
@@ -67,11 +69,12 @@ public:
 		//(iterator = num.begin(); iterator < num.end(); it++)
 			//if(*it == d)
 		int i = 0;
-		for ( vector<int>::iterator it = num.begin(); it != num.end(); it++)
+		vector<int>::iterator it;
+		for (it = num.begin(); it < num.end(); it++)
 		{
-			if(num.at(i) == d)
+			if( *it == d)
 			{
-				num.erase(num.begin()+i);
+				num.erase(it);
 				it--;
 				i--;
 			}

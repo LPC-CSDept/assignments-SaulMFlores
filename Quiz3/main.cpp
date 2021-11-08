@@ -88,9 +88,18 @@ void deDup(Numbers<int>& a, Numbers<int>& b)
                 elmVal.push_back(b.getElm(i));
             }
         }
+         for (int i = smaller; i < smaller + diff; i++)
+        {
+            if(b.getElm(i) == numAtEnd)
+            {
+                elmVal.push_back(numAtEnd);
+            }
+        }
     }
-    else{
-        for(int i = 0; i < a.getSize()+1; i++)
+
+    else
+    {
+        for(int i = 0; i < a.getSize(); i++)
         {
             if (a.getElm(i) == b.getElm(i))
             {
