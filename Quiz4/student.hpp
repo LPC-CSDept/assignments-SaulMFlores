@@ -1,5 +1,6 @@
 #ifndef STUDENT_H
 #define STUDENT_H
+#include <string>
 
 class Student{
     private:
@@ -8,8 +9,15 @@ class Student{
         char grade;
         double scores;
     public:
-        Student() : ID(0), sname(""), grade(""), scores(0){}
+        Student() : ID(0), sname("n/a"), grade("0"), scores(0){}
         Student(int i, string n, char g, double s)
+        {
+            ID = i; 
+            sname = n;
+            grade = g;
+            scores = s;
+        }
+        void setStudent(int i, string n, char g, double s)
         {
             ID = i; 
             sname = n;
@@ -20,7 +28,7 @@ class Student{
         void setSname(string n){sname = n;}
         void setGrade(char g){grade = g;}
         void setScores(double s){scores = s;}
-        
+
         int getID(){return ID;}
         string getSname(){return sname;}
         char getGrade(){return grade;}

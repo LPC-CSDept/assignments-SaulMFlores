@@ -17,10 +17,18 @@ class Course{
             student = s;
             NUM_COURSES +=1;
         }
+        void setCourse(string n, int c, string m, vector<Student> &s)
+        {
+            cname = n;
+            credits = c;
+            semester = m;
+            student = s;
+            NUM_COURSES +=1;
+        }
         void addStudent(Student &s)
         {
             student.push_back(s);
-        }       //experiment betweenthese two ^ v
+        }//experiment betweenthese two ^ v
         Course setCourse(string n, int c, string m, vector<Student> &s)
         {
             cname = n;
@@ -38,7 +46,8 @@ class Course{
         vector<Student> getStudent(){}
 
         static int getNumCourses() { return NUM_COURSES; }
+        friend ostream &operator>>(ostream &, const Course &){}
+        friend ostream &operator<<(ostream &, const Course &)}{}
 };
-
 int Course::NUM_COURSES = 0;
 #endif

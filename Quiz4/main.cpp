@@ -36,5 +36,10 @@ ostream &operator<<(ostream &ofs, const Course &c)
 
 int main()
 {
+    ifstream ifs;
+    ofstream ofs;
+
+    ifs.open("coursestudents.txt");
+    
 
 }
