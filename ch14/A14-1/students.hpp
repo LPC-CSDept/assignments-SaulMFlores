@@ -1,6 +1,7 @@
 #ifndef 	STUDENT_H
 #define 	STUDENT_H
 #include <string>
+using namespace std;
 
 class Student
 {
@@ -41,7 +42,6 @@ class Student
 		{
 			return TOTAL_SUM;
 		}
-    void 
 };
 
 int Student::NUM_STUDENTS = 0;

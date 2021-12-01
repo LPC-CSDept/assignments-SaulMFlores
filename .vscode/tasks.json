@@ -25,17 +25,17 @@
         {
             "label": "Make buildall",
             "type": "shell",
-            "command":"make",
+            "command": "make",
             "args": [
                 "buildall"
             ],
-            "options":{
-                "cwd":"${workspaceFolder}/Ch13/A13-3"
+            "options": {
+                "cwd": "${workspaceFolder}/Ch13/A13-3"
             },
             "problemMatcher": [
                 "$gcc"
             ],
-            "group":"build"
+            "group": "build"
         }
     ],
     "version": "2.0.0"

@@ -52,13 +52,13 @@ void deDup(Numbers<int>& a, Numbers<int>& b)
 {  
   
     vector<int> elmVal;
-    int i;
-    int j;
+    int i = 0;
+    int j = 0;
     for(i = 0; i < b.getSize(); i++){
         for(j = 0; j < a.getSize(); j++){
             if (a.getElm(j) == b.getElm(i))
             {
-                a.deleteElm(i);
+                a.deleteElm(b.getElm(i));
             }
         }
     }
